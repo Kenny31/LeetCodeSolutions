@@ -1,0 +1,24 @@
+class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+        StringBuilder s1 = new StringBuilder(str1+str2);
+        //s1.append(str1+str2);
+        StringBuilder s2 = new StringBuilder(str2+str1);
+        //s2.append(str2+str1);
+
+        if(s1.toString().equals(s2.toString())){
+            int l1 = str1.length();
+            int l2 = str2.length();
+
+            return str1.substring(0, gcd(l1,l2));
+        }
+        else{
+            return "";
+        }
+    }
+
+    public int gcd(int a, int b){
+        if (b == 0)   
+            return a;     
+        return gcd(b, a % b);   
+    }
+}
