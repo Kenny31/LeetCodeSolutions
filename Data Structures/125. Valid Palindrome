@@ -1,0 +1,39 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        if(s.equals(" "))
+            return true;
+        else{
+            char[] c = s.toCharArray();
+            int i=0;
+            int j= c.length-1;
+            while(i<j){
+                // ignore blank space from left side
+                if(c[i] == ' ') 
+                    i++;
+
+                // ignore blank space from right side
+                else if(c[j] == ' ') 
+                    j--;
+
+                // ignore special characters like from left
+                else if(!(c[i]>='a' && c[i]<='z' || c[i]>='A' && c[i]<='Z' || c[i]>='0' && c[i]<='9')) 
+                    i++;
+
+                // ignore special characters like from right
+                else if(!(c[j]>='a' && c[j]<='z' || c[j]>='A' && c[j]<='Z' || c[j]>='0' && c[j]<='9'))
+                    j--;
+
+                // ignore case and if matched then increment from left and decrement from right
+                else if(Character.toLowerCase(c[i]) == Character.toLowerCase(c[j])){ 
+                    i++;
+                    j--;
+                }
+
+                // if characters doesn't match simply return false
+                else
+                    return false;
+            }
+            return true;
+        }
+    }
+}
