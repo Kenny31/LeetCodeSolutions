@@ -1,0 +1,17 @@
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        int start=0;
+        int end=arr.length-1;
+        List<Integer> close = new ArrayList<>(k);
+        while(end-start >= k){
+            if(Math.abs(arr[start]-x) > Math.abs(arr[end]-x))
+                start++;
+            else
+                end--;
+        }
+        for(int i= start; i<=end; i++)
+            close.add(arr[i]);
+        
+        return close;
+    }
+}
