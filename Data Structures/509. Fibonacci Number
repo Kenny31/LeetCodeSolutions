@@ -1,0 +1,12 @@
+class Solution {
+    public int fib(int n) {
+        int firstTerm = 0, secondTerm = 1;
+
+        for (int i = 1; i <= n; ++i) {
+        int nextTerm = firstTerm + secondTerm;
+        firstTerm = secondTerm;
+        secondTerm = nextTerm;
+        }
+        return firstTerm;
+    }
+}
