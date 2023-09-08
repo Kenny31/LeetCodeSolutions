@@ -1,0 +1,18 @@
+class Solution {
+    public int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+        if(k <= numOnes)
+            return k;
+        else{
+            int max = numOnes;
+            k = k - numOnes;
+            if(k <= numZeros)
+                return max;
+            else{
+                k = k - numZeros;
+                for(int i=0; i<k; i++)
+                    max--;
+                return max;
+            }
+        }
+    }
+}
