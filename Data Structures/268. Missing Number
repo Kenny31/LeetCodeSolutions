@@ -1,0 +1,12 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        int sumLarge = 0, sumSmall = 0;
+        for(int i=0; i<nums.length; i++){
+            sumLarge += i;
+            sumSmall += nums[i];
+        }
+        sumLarge += nums.length;
+        //System.out.println("large = " + sumLarge + " | Small = " + sumSmall);
+        return sumLarge - sumSmall;
+    }
+}

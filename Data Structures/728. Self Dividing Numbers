@@ -1,0 +1,27 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> output = new ArrayList<>();
+        for(int i=left; i<= right; i++){
+            String numString = String.valueOf(i);
+            if(numString.contains("0"))
+                continue;
+            else{
+                char[] digits = numString.toCharArray();
+                int flag = 0;
+                for(int j=0;j<digits.length; j++){
+                    //System.out.println(i + " % " + digits[j] + " = " + i % digits[j]);
+                    if(i % Character.getNumericValue(digits[j]) == 0)
+                        flag = 1;
+                    else{
+                        flag = 0;
+                        break;
+                    }
+                }
+                if(flag == 1)
+                    output.add(i);
+                }
+            }
+            
+        return output;
+    }
+}
