@@ -1,0 +1,20 @@
+class Solution {
+    public String reverseWords(String s) {
+        int start = 0, end = 0;
+        StringBuilder sb = new StringBuilder();
+        char[] arr = s.toCharArray();
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] == ' '){
+                start = i-1;
+                for(int j = start; j>=end; j--){
+                    sb.append(arr[j]);
+                }
+                sb.append(" ");
+                end = i+1;
+            }
+        }
+        for(int i=arr.length-1; i > end-1 ; i--)
+            sb.append(arr[i]);
+        return sb.toString();
+    }
+}
